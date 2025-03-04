@@ -1,0 +1,26 @@
+@username=danny
+@password='qwerty
+@api_url=http://localhost:8000
+
+
+### AUTHENTICATION - Get Authorization Token
+POST {{api_url}}/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "{{username}}",
+  "password": "{{password}}"
+}
+
+> {%
+    client.test("Request executed successfully", function () {
+        client.assert([200, 201].includes(response.status), "Response status is not 20x");
+    });
+    client.global.set("auth_token", response.body.token);
+%}
+
+<> 2025-03-04T142837.500.html
+<> 2025-03-04T142542.500.html
+<> 2025-03-04T142532.500.html
+<> 2025-03-04T142526.500.html
+<> 2025-03-04T142504.500.html
